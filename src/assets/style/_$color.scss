@@ -1,0 +1,62 @@
+body {
+	// _____________________* basic main colors *_____________________ //
+	--color-primary-1: #304770;
+	--color-primary-1-rgb: 48, 71, 112;
+
+	--color-secondary-1: #60a741;
+	--color-secondary-1-rgb: 96, 167, 65;
+
+	--color-tertiary-1: #233532;
+	--color-tertiary-1-rgb: 35, 53, 50;
+
+	// _____________________* custom main colors *_____________________ //
+	--color-success: #17a66a;
+	--color-success-rgb: 23, 166, 106;
+
+	--color-danger: #dd5656;
+	--color-danger-rgb: 221, 86, 86;
+
+	--color-warning: #f3ba2f;
+	--color-warning-rgb: 243, 186, 47;
+
+	--color-info: #0d68f0;
+	--color-info-rgb: 13, 104, 240;
+
+	--color-cancel: #89a;
+	--color-cancel-rgb: 136, 153, 170;
+
+	// _____________________* text & bg colors *_____________________ //
+	--color-background-primary: #cce9e6;
+	--color-background-primary-rgb: 204, 233, 230;
+
+	--color-background-secondary: #eef7f6;
+	--color-background-secondary-rgb: 238, 247, 246;
+
+	--color-background-tertiary: #ffffff;
+	--color-background-tertiary-rgb: 256, 256, 256;
+
+	--color-text-primary: #111111;
+	--color-text-primary-rgb: 17, 17, 17;
+
+	--color-text-secondary: #444444;
+	--color-text-secondary-rgb: 68, 68, 68;
+
+	--color-text-tertiary: #777777;
+	--color-text-tertiary-rgb: 119, 119, 119;
+
+	// _____________________* dark theme colors : set In Template *_____________________ //
+	&[_theme='dark'] {
+		// --color-background-primary: #141420;
+		// --color-background-primary-rgb: 20, 20, 32;
+		// --color-background-secondary: #2c2f3c;
+		// --color-background-secondary-rgb: 44, 47, 60;
+		// --color-background-tertiary: #5c5c5c;
+		// --color-background-tertiary-rgb: #92, 92, 92;
+		// --color-text-primary: #ffffff;
+		// --color-text-primary-rgb: 256, 256, 256;
+		// --color-text-secondary: #eeeeee;
+		// --color-text-secondary-rgb: 238, 238, 238;
+		// --color-text-tertiary: #dddddd;
+		// --color-text-tertiary-rgb: 221, 221, 221;
+	}
+}

@@ -1,0 +1,43 @@
+// ____________________________________________ VARIABLE'S ____________________________________________ //
+// .container {   }
+
+// ____________________________________________ THEME'S ____________________________________________ //
+// body[_theme='light'] .container {   }
+
+// ____________________________________________ LANGUAGE'S ____________________________________________ //
+// body:not([_language='fa']) .container {    }
+
+// ____________________________________________ STYLES ____________________________________________ //
+.container {
+	//th & tr
+	& > *:nth-child(1),
+	& > *:nth-child(2) > * {
+		min-height: 50px;
+
+		// td
+		& > * {
+		}
+	}
+
+	// th
+	& > *:nth-child(1) {
+		border-bottom: 1px solid var(--color-cancel);
+	}
+
+	//tr
+	& > *:nth-child(2) > * {
+		border-bottom: 1px solid rgba((var(--color-cancel-rgb)), 0.5);
+		opacity: 0.9;
+
+		&:hover {
+			opacity: 1;
+			background-color: rgba((var(--color-primary-1-rgb)), 0.1);
+		}
+	}
+}
+
+// ______________________________________ MEDIA SCREEN'S (MOBILE FIRST) _______________________________________ //
+// @screen sm { .container {  } }
+// @screen md { .container {  } }
+// @screen lg { .container {  } }
+// @screen xl { .container {  } }

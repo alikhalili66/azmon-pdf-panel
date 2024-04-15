@@ -1,0 +1,115 @@
+// _____________* gradient primary *_____________//
+.gradient-bg-primary {
+	background: linear-gradient(242.37deg, var(--color-primary-1) 39.07%, var(--color-primary-2) 75.9%);
+}
+
+.gradient-text-primary {
+	color: transparent;
+	background-clip: text;
+	background-image: linear-gradient(242.37deg, var(--color-primary-1) 39.07%, var(--color-primary-2) 75.9%);
+}
+
+.gradient-border-primary {
+	border-image: linear-gradient(242.37deg, var(--color-primary-1), var(--color-primary-2)) 1;
+}
+
+// _____________* gradient secondary *_____________//
+.gradient-bg-secondary {
+	background: linear-gradient(242.37deg, var(--color-secondary-1) 39.07%, var(--color-secondary-2) 75.9%);
+}
+
+.gradient-text-secondary {
+	color: transparent;
+	background-clip: text;
+	background-image: linear-gradient(242.37deg, var(--color-secondary-1) 39.07%, var(--color-secondary-2) 75.9%);
+}
+
+.gradient-border-secondary {
+	border-image: linear-gradient(242.37deg, var(--color-secondary-1), var(--color-secondary-2)) 1;
+}
+
+@screen sm {
+	.sm-parent-hover {
+		&:hover {
+			.sm-child-inline-flex {
+				display: inline-flex;
+			}
+			.sm-child-hidden {
+				display: none;
+			}
+		}
+	}
+}
+
+.bg-gradient-header {
+	background-image: linear-gradient(45deg, var(--color-primary-1) 40%, var(--color-secondary-1) 40%);
+}
+
+.bg-image-body {
+	background-image: url('../img/body.jpg');
+	background-size: cover;
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.content-min-h {
+	min-height: calc(100vh - 100px);
+}
+
+.content-h {
+	height: calc(100vh - 100px);
+}
+
+//MUI Datepicker styles
+[role='dialog'] * {
+	font-family: inherit !important;
+}
+
+body[_language='fa'] .MuiCalendarPicker-root > div:first-child,
+body[_language='fa'] .MuiPickersPopper-root {
+	direction: ltr !important;
+}
+
+.MuiTextField-root.MuiFormControl-root {
+	* {
+		font-family: 'vazir';
+	}
+
+	& > div {
+		background-color: var(--color-background-tertiary) !important;
+		border-radius: 4px !important;
+		min-height: 55px;
+	}
+
+	&.picker-valid {
+		fieldset {
+			border-color: var(--color-success) !important;
+		}
+	}
+
+	&.picker-invalid {
+		fieldset {
+			border-color: var(--color-danger) !important;
+		}
+	}
+
+	&:not(.picker-invalid):not(.picker-valid) .Mui-focused {
+		fieldset {
+			border-color: var(--color-info) !important;
+		}
+	}
+
+	fieldset {
+		border-color: var(--color-text-tertiary) !important;
+		border-width: 1px !important;
+	}
+
+	input {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		direction: ltr;
+		text-align: right;
+		font-weight: 500;
+		font-size: 16px;
+	}
+}

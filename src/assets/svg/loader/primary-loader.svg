@@ -1,0 +1,87 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	style="margin: auto; display: block"
+	viewBox="0 0 100 100"
+	preserveAspectRatio="xMidYMid"
+>
+	<defs>
+		<filter id="ldio-evxs3qlsnfm-filter" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="3.6"></feGaussianBlur>
+			<feComponentTransfer result="cutoff">
+				<feFuncA type="table" tableValues="0 0 0 0 0 0 1 1 1 1 1"></feFuncA>
+			</feComponentTransfer>
+		</filter>
+	</defs>
+	<g filter="url(#ldio-evxs3qlsnfm-filter)">
+		<g transform="translate(50 50)">
+			<g>
+				<circle cx="24" cy="0" r="5" fill="#07c3f2">
+					<animate
+						attributeName="r"
+						keyTimes="0;0.5;1"
+						values="5.3999999999999995;12.6;5.3999999999999995"
+						dur="3.4482758620689653s"
+						repeatCount="indefinite"
+						begin="-0.29000000000000004s"
+					></animate>
+				</circle>
+				<animateTransform
+					attributeName="transform"
+					type="rotate"
+					keyTimes="0;1"
+					values="0;360"
+					dur="3.4482758620689653s"
+					repeatCount="indefinite"
+					begin="0s"
+				></animateTransform>
+			</g>
+		</g>
+		<g transform="translate(50 50)">
+			<g>
+				<circle cx="24" cy="0" r="5" fill="#ffa82e">
+					<animate
+						attributeName="r"
+						keyTimes="0;0.5;1"
+						values="5.3999999999999995;12.6;5.3999999999999995"
+						dur="1.7241379310344827s"
+						repeatCount="indefinite"
+						begin="-0.19333333333333336s"
+					></animate>
+				</circle>
+				<animateTransform
+					attributeName="transform"
+					type="rotate"
+					keyTimes="0;1"
+					values="0;360"
+					dur="1.7241379310344827s"
+					repeatCount="indefinite"
+					begin="-0.09666666666666668s"
+				></animateTransform>
+			</g>
+		</g>
+		<g transform="translate(50 50)">
+			<g>
+				<circle cx="24" cy="0" r="5" fill="#14a1c4">
+					<animate
+						attributeName="r"
+						keyTimes="0;0.5;1"
+						values="5.3999999999999995;12.6;5.3999999999999995"
+						dur="1.1494252873563218s"
+						repeatCount="indefinite"
+						begin="-0.09666666666666668s"
+					></animate>
+				</circle>
+				<animateTransform
+					attributeName="transform"
+					type="rotate"
+					keyTimes="0;1"
+					values="0;360"
+					dur="1.1494252873563218s"
+					repeatCount="indefinite"
+					begin="-0.19333333333333336s"
+				></animateTransform>
+			</g>
+		</g>
+	</g>
+</svg>

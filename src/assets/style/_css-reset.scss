@@ -1,0 +1,34 @@
+* {
+	padding: 0;
+	margin: 0;
+	transition: all 0.3s ease;
+	// transition-property: height, width, color, border, background, opacity, transform, box-shadow, text-shadow;
+	transition-property: height, width;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 7px;
+		background-image: linear-gradient(90deg, #334155cc, #556377cc, #64748bcc, #556377cc, #334155cc);
+		background-color: #1114;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 999px;
+		background-image: linear-gradient(90deg, #94a3b8cc, #cad1d9cc, #dfe5eccc, #cad1d9cc, #94a3b8cc);
+		background-color: #fff4;
+	}
+}
+
+body {
+	font-family: 'vazir', 'crea', 'system-ui';
+	font-weight: 500;
+
+	&[_language='en'] {
+		font-family: 'crea', 'system-ui';
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		:root {
+			scroll-behavior: smooth;
+		}
+	}
+}

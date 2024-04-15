@@ -1,0 +1,42 @@
+export type ContentFailedProps = Props_Block & {
+	boxBackdropBlur?: string;
+	boxOpacity?: string;
+	boxBgColor?: string;
+	elClass?: string;
+	elSize?: string;
+	elSpace?: string;
+	elOpacity?: string;
+	onReload?: (() => any) | null;
+};
+
+export const ContentFailed = ({
+	// Box Control
+	boxClass = '',
+	boxSize = '',
+	boxSpace = '',
+	boxBackdropBlur = 'backdrop-blur-[2px]',
+	boxOpacity = '',
+	boxBgColor = '',
+	// Loader Control
+	elClass = '',
+	elSize = 'max-h-[75%] min-h-[90px]',
+	elSpace = 'm-[20px]',
+	elOpacity = 'opacity-50',
+	onReload = null,
+
+	...props
+}: ContentFailedProps) => {
+	return (
+		<div
+			className={`${boxClass} ${boxSize} ${boxSpace} ${boxOpacity} ${boxBgColor} ${boxBackdropBlur} absolute bg-[#f003] top-0 right-0 left-0 bottom-0 flex flex-col items-center  gap-4justify-center select-none z-[4]`}
+			{...props}
+		>
+			<div className={`${elClass} ${elSize} ${elSpace} ${elOpacity} w-full flex flex-col items-center justify-center gap-3`}>
+				{onReload && <i className='cursor-pointer fa fa-refresh fa-lg hover:animate-spin' onClick={onReload} />}
+				<span className='animate-pulse'>خطایی پیش آمده</span>
+			</div>
+		</div>
+	);
+};
+
+export default ContentFailed;
