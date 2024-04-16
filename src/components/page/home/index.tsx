@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 
 import { page_home } from '@context';
 import { PrimaryButton, PrimaryCard } from '@attom';
+import { LabCard } from '@molecule';
 
 export type HomeProps = Props_Block & {};
 
@@ -20,18 +21,6 @@ export const Home = ({
 	const changeRoute = (route: string) => {
 		router.push(`${route}${window?.location?.search || ''}`);
 	};
-
-	const labs = [
-		{
-			logo: '',
-			name: '',
-			testLink: '',
-			testsLink: '',
-			bioLink: '',
-			address: '',
-			phone: '',
-		},
-	];
 
 	return (
 		<PrimaryCard
@@ -59,8 +48,15 @@ export const Home = ({
 				</div>
 			</div>
 
-			<div className='pt-[50px] flex items-center justify-center text-primary-3 text-[24px] font-[500]'>
-				آزمایشگاه های تخصصی پاتوبیولوژی
+			<div className='pt-[50px]'>
+				<div className='flex items-center justify-center text-primary-3 text-[24px] font-[500]'>
+					آزمایشگاه های تخصصی پاتوبیولوژی
+				</div>
+
+				<div className='grid grid-cols-12 gap-4 py-4'>
+					<LabCard boxSize='col-span-12 lg:col-span-6' />
+					<LabCard boxSize='col-span-12 lg:col-span-6' />
+				</div>
 			</div>
 
 			<div className='flex items-center justify-between p-10'>

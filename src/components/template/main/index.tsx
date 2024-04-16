@@ -77,7 +77,7 @@ export const MainTemplate = ({
 					</div>
 
 					<div
-						className='rounded-full cursor-pointer bg-primary-2-40 hover:bg-primary-2 text-primary-2 hover:text-[#fff] p-2 min-w-[140px] min-h-[40px] flex items-center justify-center text-[16px]'
+						className='rounded-full cursor-pointer bg-primary-2-20 hover:bg-primary-2 text-primary-2 hover:text-[#fff] p-2 min-w-[140px] min-h-[40px] flex items-center justify-center text-[16px]'
 						onClick={() => goToLink('https://homzhans.com/contact')}
 					>
 						تماس با ما
