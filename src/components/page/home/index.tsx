@@ -32,7 +32,7 @@ export const Home = ({
 			transparent
 			{...props}
 		>
-			<div className='pt-[50px] flex items-center justify-center gap-2 text-primary-2 text-[24px]'>
+			<div className='pt-[70px] flex items-center justify-center gap-2 text-primary-2 text-[24px]'>
 				<div className='font-[500]'>آزمایشگاه های تحت مدیریت</div>
 				<div className='relative flex flex-col'>
 					<span className='font-bold'>دکتر حسین کیوانی</span>

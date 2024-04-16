@@ -33,11 +33,11 @@ export const MainTemplate = ({
 		>
 			{/* Header */}
 			<div className='home-container pt-[20px]'>
-				<div className='rounded-[22px] min-h-[100px] header-shadow flex items-center justify-between gap-4 p-4'>
+				<div className='rounded-[28px] min-h-[100px] header-shadow flex items-center justify-between gap-4 py-2 px-5'>
 					<img
 						alt=''
 						src={images.logo_homezhans?.src}
-						className=' cursor-pointer h-[60px]'
+						className=' cursor-pointer h-[55px] pr-[30px]'
 						onClick={() => goToLink('https://homzhans.com/')}
 					/>
 
