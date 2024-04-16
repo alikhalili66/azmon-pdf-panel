@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { page_home } from '@context';
 import { PrimaryButton, PrimaryCard } from '@attom';
 import { LabCard } from '@molecule';
+import { images } from '@data';
 
 export type HomeProps = Props_Block & {};
 
@@ -20,6 +21,10 @@ export const Home = ({
 
 	const changeRoute = (route: string) => {
 		router.push(`${route}${window?.location?.search || ''}`);
+	};
+
+	const goToLink = (link: string) => {
+		window?.open(link, '_blank');
 	};
 
 	return (
@@ -48,20 +53,78 @@ export const Home = ({
 				</div>
 			</div>
 
-			<div className='pt-[50px]'>
+			<div className='pt-[40px]'>
 				<div className='flex items-center justify-center text-primary-3 text-[24px] font-[500]'>
 					آزمایشگاه های تخصصی پاتوبیولوژی
 				</div>
 
 				<div className='grid grid-cols-12 gap-4 py-4'>
-					<LabCard boxSize='col-span-12 lg:col-span-6' />
-					<LabCard boxSize='col-span-12 lg:col-span-6' />
+					<LabCard
+						boxSize='col-span-12 lg:col-span-6'
+						logo={images.labNegin?.src || ''}
+						name='آزمایشگاه تخصصی نگین آزادی'
+						phone='58717 021'
+						address='تهران، تقاطع خیابان آزادی، نبش کوچه اسکندری شمالی، پلاک 149، طبقه-5'
+						testOnClick={() => changeRoute('/test')}
+						testsOnClick={() => changeRoute('/tests')}
+						bioOnClick={() =>
+							goToLink(
+								'https://www.homzhans.com/neginazadi/?_gl=1*2cyfbc*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjEuMTcxMzI2ODkyOS4wLjAuMA..',
+							)
+						}
+					/>
+					<LabCard
+						boxSize='col-span-12 lg:col-span-6'
+						logo={images?.labEmdad?.src || ''}
+						name='آزمایشگاه تخصصی پاتوبیولوژی امدادگران'
+						address='تهران، بزرگراه شهید سلیمانی( رسالت)غرب به شرق، پیش از دور برگردان دنیای نور، نبش کوچه ترک، مجتمع پزشکی امدادگران، طبقه پنجم'
+						phone='58717 021'
+						testOnClick={() => changeRoute('/test')}
+						testsOnClick={() => changeRoute('/tests')}
+						bioOnClick={() =>
+							goToLink(
+								'https://www.homzhans.com/bio/?_gl=1*2cyfbc*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjEuMTcxMzI2ODkyOS4wLjAuMA..',
+							)
+						}
+					/>
 				</div>
 			</div>
 
-			<div className='flex items-center justify-between p-10'>
-				<PrimaryButton content='جوابدهی آزمایشگاه' onClick={() => changeRoute('/tests')} />
-				<PrimaryButton content='جوابدهی بیمار' onClick={() => changeRoute('/test')} />
+			<div className='pt-[40px]'>
+				<div className='flex items-center justify-center text-primary-3 text-[24px] font-[500]'>
+					آزمایشگاه های تخصصی ویروس شناسی
+				</div>
+
+				<div className='grid grid-cols-12 gap-4 py-4'>
+					<LabCard
+						boxSize='col-span-12 lg:col-span-6'
+						logo={images.labKeyvan?.src || ''}
+						name='آزمایشگاه تخصصی ویروس شناسی کیوان'
+						phone='58717 021'
+						address='تهران، خیابان شهید بهشتی (عباس‌آباد)، بعد از سینما آزادی، به طرف خیابان ولیعصر، پلاک 498 طبقه همکف'
+						testOnClick={() => changeRoute('/test')}
+						testsOnClick={() => changeRoute('/tests')}
+						bioOnClick={() =>
+							goToLink(
+								'https://www.homzhans.com/keyvan/?_gl=1*3ma4v6*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI3MTAyNy4yLjEuMTcxMzI3MTM5Ni4wLjAuMA..',
+							)
+						}
+					/>
+					<LabCard
+						boxSize='col-span-12 lg:col-span-6'
+						logo={images?.labMihan?.src || ''}
+						name='آزمایشگاه تخصصی ویروس شناسی میهن'
+						address='تهران، خیابان شهید کلاهدوز( دولت)، بین دیباجی جنوبی و چهارراه قنات، ساختمان پزشکان مهر، پلاک 221، واحد 12'
+						phone='58717 021'
+						testOnClick={() => changeRoute('/test')}
+						testsOnClick={() => changeRoute('/tests')}
+						bioOnClick={() =>
+							goToLink(
+								'https://www.homzhans.com/bio/?_gl=1*1t5z5gl*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI3MTAyNy4yLjEuMTcxMzI3MTM5Ni4wLjAuMA..',
+							)
+						}
+					/>
+				</div>
 			</div>
 		</PrimaryCard>
 	);
