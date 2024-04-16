@@ -11,6 +11,8 @@ module.exports = {
 			colors: {
 				// _____________________* basic main colors *_____________________ //
 				'primary-1': 'var(--color-primary-1)',
+				'primary-2': 'var(--color-primary-2)',
+				'primary-3': 'var(--color-primary-3)',
 				'secondary-1': 'var(--color-secondary-1)',
 				'tertiary-1': 'var(--color-tertiary-1)',
 				// _____________________* custom main colors *_____________________ //

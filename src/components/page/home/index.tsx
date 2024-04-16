@@ -21,6 +21,18 @@ export const Home = ({
 		router.push(`${route}${window?.location?.search || ''}`);
 	};
 
+	const labs = [
+		{
+			logo: '',
+			name: '',
+			testLink: '',
+			testsLink: '',
+			bioLink: '',
+			address: '',
+			phone: '',
+		},
+	];
+
 	return (
 		<PrimaryCard
 			boxClass={boxClass}
@@ -31,6 +43,26 @@ export const Home = ({
 			transparent
 			{...props}
 		>
+			<div className='pt-[50px] flex items-center justify-center gap-2 text-primary-2 text-[24px]'>
+				<div className='font-[500]'>آزمایشگاه های تحت مدیریت</div>
+				<div className='relative flex flex-col'>
+					<span className='font-bold'>دکتر حسین کیوانی</span>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						viewBox='0 0 500 150'
+						preserveAspectRatio='none'
+						// className='absolute top-[50%] left-[50%] w-[calc(100%_-_20px)] h-[calc(100%_-_20px)] overflow-visible translate-x-[-50%] translate-y-[-50%]'
+						className='absolute top-[50%] w-[100%] h-[20px] opacity-50'
+					>
+						<path d='M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7'></path>
+					</svg>
+				</div>
+			</div>
+
+			<div className='pt-[50px] flex items-center justify-center text-primary-3 text-[24px] font-[500]'>
+				آزمایشگاه های تخصصی پاتوبیولوژی
+			</div>
+
 			<div className='flex items-center justify-between p-10'>
 				<PrimaryButton content='جوابدهی آزمایشگاه' onClick={() => changeRoute('/tests')} />
 				<PrimaryButton content='جوابدهی بیمار' onClick={() => changeRoute('/test')} />

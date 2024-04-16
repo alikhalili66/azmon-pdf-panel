@@ -60,6 +60,21 @@
 	height: calc(100vh - 100px);
 }
 
+.home-container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.hover-link {
+	&:hover {
+		background-color: rgba(var(--color-primary-3-rgb), 0.3);
+	}
+}
+
+.header-shadow {
+	box-shadow: rgba(0, 0, 0, 0.22) 0px 0px 8px 0px;
+}
+
 //MUI Datepicker styles
 [role='dialog'] * {
 	font-family: inherit !important;
