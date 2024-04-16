@@ -1,4 +1,4 @@
-import { MainTemplate } from '@template';
+import { PanelTemplate } from '@template';
 import { UserReception } from '@page/user-reception';
 import { page_userReception } from '@context';
 
@@ -10,8 +10,8 @@ export default NextPage;
 
 NextPage.getLayout = function getLayout(page) {
 	return (
-		<MainTemplate>
+		<PanelTemplate>
 			<page_userReception.Provider>{page}</page_userReception.Provider>
-		</MainTemplate>
+		</PanelTemplate>
 	);
 };

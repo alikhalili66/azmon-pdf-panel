@@ -1,8 +1,6 @@
 import { createContext } from '../../create-context';
 
 export type InitState = {
-	$userInfo: API_reception[] | null;
-
 	login: {
 		_login: Service_status;
 		$login: { Data: any; Message: string; Success: boolean } | null;
@@ -30,8 +28,6 @@ export type InitState = {
 };
 
 export const initState: InitState = {
-	$userInfo: null,
-
 	login: {
 		_login: 'init',
 		$login: null,

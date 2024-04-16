@@ -18,7 +18,7 @@ export const $example_POST = async (
 	);
 
 //______________________  	______________________//
-export const $login_GET = async (
+export const $labLogin_GET = async (
 	handlerConfig: Service_configHandler,
 	data: Service_data & {
 		query: { LabId: string; Password: string; FromDate?: string; ToDate?: string; ReceptionYear?: string };
@@ -29,6 +29,24 @@ export const $login_GET = async (
 			await HTTPService.call({
 				method: 'GET',
 				defaultUri: 'https://azmoonproxy.niktech.org/server/ReceptionResultLab.aspx',
+				path: '',
+				...data,
+			}),
+		handlerConfig,
+	);
+
+//______________________  	______________________//
+export const $userLogin_GET = async (
+	handlerConfig: Service_configHandler,
+	data: Service_data & {
+		query: { ReceptionCode: string; Phone: string };
+	},
+) =>
+	await HTTPService.handler(
+		async () =>
+			await HTTPService.call({
+				method: 'GET',
+				defaultUri: 'https://azmoonproxy.niktech.org/server/ReceptionResult',
 				path: '',
 				...data,
 			}),

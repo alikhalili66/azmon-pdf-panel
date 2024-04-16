@@ -1,6 +1,7 @@
 import { page_home } from '@context';
 
-import { PrimaryCard } from '@attom';
+import { PrimaryButton, PrimaryCard } from '@attom';
+import { useRouter } from 'next/router';
 
 export type HomeProps = Props_Block & {};
 
@@ -14,6 +15,15 @@ export const Home = ({
 }: HomeProps) => {
 	const { state } = page_home.useContext();
 
+	const router = useRouter();
+
+	const changeRoute = (route: string) => {
+		const params = new URLSearchParams(window?.location?.search || '');
+		const search = params.toString();
+
+		router.push(`${route}/?${search}`);
+	};
+
 	return (
 		<PrimaryCard
 			boxClass={boxClass}
@@ -24,7 +34,10 @@ export const Home = ({
 			transparent
 			{...props}
 		>
-			<div>home page</div>
+			<div className='flex items-center justify-between p-10'>
+				<PrimaryButton content='جوابدهی آزمایشگاه' onClick={() => changeRoute('/tests')} />
+				<PrimaryButton content='جوابدهی بیمار' onClick={() => changeRoute('/test')} />
+			</div>
 		</PrimaryCard>
 	);
 };

@@ -21,12 +21,7 @@ export const MainTemplate = ({
 			boxSpace={boxSpace}
 		>
 			{/* Header */}
-			<div className='bg-gradient-header'>
-				<div className='h-[100px] max-w-[1200px] w-[90%] mx-auto flex items-center justify-between p-2 gap-2'>
-					<div className='text-white font-[500] text-[20px] md:text-[26px]'>سامانه جوابدهی آنلاین آزمایشگاه کیوان</div>
-					<img alt='' src={images.logo?.src} className='max-h-[80px] max-w-[150px] md:max-w-[300px]' />
-				</div>
-			</div>
+			<div className='bg-gradient-header min-h-[100px]'></div>
 
 			{/* Body */}
 			<div className='content-min-h bg-image-body'>{children}</div>

@@ -38,7 +38,7 @@ export const useActions = () => {
 			if (onFailCB) onFailCB();
 		};
 
-		api.$login_GET(
+		api.$labLogin_GET(
 			{ onOk, onFail, onStatus, showFailMessage: false },
 			{
 				query: {
@@ -80,7 +80,7 @@ export const useActions = () => {
 			if (onFailCB) onFailCB();
 		};
 
-		api.$login_GET(
+		api.$labLogin_GET(
 			{ onOk, onFail, onStatus, showOkMessage: true },
 			{
 				query: {

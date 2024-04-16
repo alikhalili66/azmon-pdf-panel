@@ -3,6 +3,7 @@ export const regex = {
 	token: /^.{30,}$/,
 	// public
 	postalCode: /^\d{10}$/,
+	receptionCode: /^\d{2,}$/,
 	phone: /^\d{11}$/,
 	cellphone: /^09\d{9}$/,
 	password: /^.{3,}$/,

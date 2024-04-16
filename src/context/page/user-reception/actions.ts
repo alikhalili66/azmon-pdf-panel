@@ -1,7 +1,5 @@
 import { api } from '@services';
 import { useContext } from '.';
-import { Dates } from '@utils';
-import { toast } from 'react-toastify';
 
 export const useActions = () => {
 	const { state, setState, initState, overWrite } = useContext();
@@ -16,7 +14,7 @@ export const useActions = () => {
 		];
 
 		const { login } = state;
-		const { labId, password } = login;
+		const { receptionCode, phone } = login;
 
 		const onStatus = async (status: Service_status) => {
 			if (typeof onStatusCB === 'function') onStatusCB(status);
@@ -30,23 +28,17 @@ export const useActions = () => {
 		};
 
 		const onFail = async (res: any) => {
-			if (res?.Message === 'پذیرشی برای مرکز یافت نشده است') return onOk(res);
-
-			toast.error(res?.Message || 'خطایی رخ داده است');
+			if (onFailCB) onFailCB();
 
 			overWrite({ scope: 'login', value: { $login: res || null } });
-			if (onFailCB) onFailCB();
 		};
 
-		api.$login_GET(
+		api.$userLogin_GET(
 			{ onOk, onFail, onStatus, showFailMessage: false },
 			{
 				query: {
-					LabId: labId,
-					Password: password,
-					FromDate: Dates.gregorianToJalaali(new Date(Date.now()))?.standardDate || '',
-					ToDate: Dates.gregorianToJalaali(new Date(Date.now()))?.standardDate || '',
-					// ReceptionYear: Dates.gregorianToJalaali(new Date(Date.now() - 1 * 24 * 60 * 60 * 1000))?.standardDate || '',
+					ReceptionCode: receptionCode,
+					Phone: phone,
 				},
 			},
 		);
@@ -60,9 +52,7 @@ export const useActions = () => {
 		];
 
 		const { login, fetchReceptions } = state;
-		const { labId, password } = login;
-		const { filter } = fetchReceptions;
-		const { fromDate, toDate } = filter;
+		const { receptionCode, phone } = login;
 
 		const onStatus = async (status: Service_status) => {
 			if (typeof onStatusCB === 'function') onStatusCB(status);
@@ -80,15 +70,12 @@ export const useActions = () => {
 			if (onFailCB) onFailCB();
 		};
 
-		api.$login_GET(
+		api.$userLogin_GET(
 			{ onOk, onFail, onStatus, showOkMessage: true },
 			{
 				query: {
-					LabId: labId,
-					Password: password,
-					FromDate: Dates.gregorianToJalaali(fromDate)?.standardDate || '',
-					ToDate: Dates.gregorianToJalaali(toDate)?.standardDate || '',
-					// ReceptionYear: Dates.gregorianToJalaali(new Date(Date.now() - 1 * 24 * 60 * 60 * 1000))?.standardDate || '',
+					ReceptionCode: receptionCode,
+					Phone: phone,
 				},
 			},
 		);
@@ -102,7 +89,7 @@ export const useActions = () => {
 		];
 
 		const { login } = state;
-		const { labId, password } = login;
+		const { receptionCode, phone } = login;
 
 		const onStatus = async (status: Service_status) => {
 			if (typeof onStatusCB === 'function') onStatusCB(status);
@@ -125,10 +112,8 @@ export const useActions = () => {
 			{ onOk, onFail, onStatus },
 			{
 				body: {
-					LabId: labId,
-					Password: password,
-					ReceptionYear: '1402/04/01',
-					ToDate: '1404/05/01',
+					ReceptionCode: receptionCode,
+					Phone: phone,
 				},
 			},
 		);

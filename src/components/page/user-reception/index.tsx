@@ -2,7 +2,7 @@ import { page_userReception } from '@context';
 
 import { PrimaryCard } from '@attom';
 
-import { Login, FetchReceptions, GetReception } from './components';
+import { Login, FetchReceptions } from './components';
 
 export type UserReceptionProps = Props_Block & {};
 
@@ -15,16 +15,13 @@ export const UserReception = ({
 	...props
 }: UserReceptionProps) => {
 	const { state } = page_userReception.useContext();
-	const { login, getReception } = state;
+	const { login } = state;
 
-	const isSuccessAuth = login?.$login?.Success || login?.$login?.Message === 'پذیرشی برای مرکز یافت نشده است';
+	const isSuccessAuth = login?.$login?.Success;
 
 	//render pages
 	const login_render = !isSuccessAuth;
 	const fetchReceptions_render = !login_render;
-
-	//render modals
-	const getReception_render = fetchReceptions_render && getReception?.selectedItem;
 
 	return (
 		<PrimaryCard
@@ -38,7 +35,6 @@ export const UserReception = ({
 		>
 			{login_render && <Login />}
 			{fetchReceptions_render && <FetchReceptions />}
-			{getReception_render && <GetReception />}
 		</PrimaryCard>
 	);
 };

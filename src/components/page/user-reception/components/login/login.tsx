@@ -15,15 +15,15 @@ export const Login = ({
 }: LoginProps) => {
 	const { state, setState, overWrite } = page_userReception.useContext();
 	const { login } = state;
-	const { labId, password, _login } = login;
+	const { receptionCode, phone, _login } = login;
 
 	const actions = page_userReception.useActions();
 
 	const changeLoginScope = (values: Partial<typeof login> = {}) => overWrite({ scope: 'login', value: { ...values } });
 
 	const validation = {
-		labId: { isValid: regex.labId.test(labId), invalidMessage: '' },
-		password: { isValid: regex.password.test(password), invalidMessage: '' },
+		receptionCode: { isValid: regex.receptionCode.test(receptionCode), invalidMessage: '' },
+		phone: { isValid: regex.phone.test(phone), invalidMessage: '' },
 	};
 
 	const { isValidForm } = useFormValidation(validation);
@@ -43,22 +43,23 @@ export const Login = ({
 					<PureForm boxClass='min-h-[300px] flex flex-col items-center justify-center gap-[30px]'>
 						<PrimaryInput
 							boxSize='w-full'
-							label='شماره آزمایشگاه'
+							label='شماره پذیرش'
 							placeholder='1234'
-							value={labId}
-							onChange={(value) => changeLoginScope({ labId: value })}
+							value={receptionCode}
+							onChange={(value) => changeLoginScope({ receptionCode: value })}
 							numeric
 							required
 							disabled={_login === 'loading'}
 						/>
 						<PrimaryInput
 							boxSize='w-full'
-							type='password'
-							label='رمز عبور'
-							placeholder='****'
-							value={password}
-							onChange={(value) => changeLoginScope({ password: value })}
+							label='شماره تماس'
+							placeholder='09111111111'
+							value={phone}
+							onChange={(value) => changeLoginScope({ phone: value })}
 							required
+							numeric
+							maxLength={11}
 							disabled={_login === 'loading'}
 						/>
 
