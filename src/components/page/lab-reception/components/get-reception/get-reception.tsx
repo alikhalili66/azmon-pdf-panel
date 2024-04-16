@@ -65,13 +65,13 @@ export const GetReception = ({
 								{(item?.Tests || []).map((item2, i2) => (
 									<div key={i2} className={i2 > 0 ? 'border-t-[3px] border-t-text-tertiary' : ''}>
 										<div className={`min-h-[50px] border-text-tertiary flex text-[16px] border-b`}>
-											<span className='min-w-[200px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
+											<span className='min-w-[150px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
 												Test
 											</span>
 											<span className='grow min-h-[50px] flex items-center justify-center text-center'>{item2?.Name || ''}</span>
 										</div>
 										<div className={`min-h-[50px] border-text-tertiary flex text-[16px] border-b`}>
-											<span className='min-w-[200px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
+											<span className='min-w-[150px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
 												Method
 											</span>
 											<span className='grow min-h-[50px] flex items-center justify-center text-center'>
@@ -79,7 +79,7 @@ export const GetReception = ({
 											</span>
 										</div>
 										<div className={`min-h-[50px] border-text-tertiary flex text-[16px] border-b`}>
-											<span className='min-w-[200px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
+											<span className='min-w-[150px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
 												Result
 											</span>
 											<span className='grow min-h-[50px] flex items-center justify-center text-center'>
@@ -87,7 +87,7 @@ export const GetReception = ({
 											</span>
 										</div>
 										<div className={`min-h-[50px] border-text-tertiary flex text-[16px]`}>
-											<span className='min-w-[200px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
+											<span className='min-w-[150px] min-h-[50px] flex items-center justify-center text-center font-bold border-r border-text-tertiary'>
 												Specimen
 											</span>
 											<span className='grow min-h-[50px] flex items-center justify-center text-center'>

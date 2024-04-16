@@ -11,7 +11,7 @@ export type InitState = {
 
 	fetchReceptions: {
 		_fetchReceptions: Service_status;
-		$fetchReceptions: Reception[];
+		$fetchReceptions: Reception | null;
 
 		_download: Service_status;
 	};
@@ -28,7 +28,7 @@ export const initState: InitState = {
 
 	fetchReceptions: {
 		_fetchReceptions: 'init',
-		$fetchReceptions: [],
+		$fetchReceptions: null,
 
 		_download: 'init',
 	},

@@ -37,7 +37,7 @@ export const PureModal = ({
 	backdropBgColor = 'bg-[#4448]',
 
 	boxClass = '',
-	boxSize = 'max-h-[90vh] min-h-[50px] max-w-[95vw] min-w-[90vw] sm:min-w-[75vw] md:min-w-[60vw] lg:min-w-[40vw]',
+	boxSize = 'max-h-[90vh] min-h-[50px] max-w-[95vw] min-w-[90vw] sm:min-w-[90vw] md:min-w-[80vw] lg:min-w-[50vw]',
 	boxSpace = '',
 	boxBgColor = 'bg-background-secondary',
 

@@ -1,7 +1,7 @@
-import { page_home } from '@context';
-
-import { PrimaryButton, PrimaryCard } from '@attom';
 import { useRouter } from 'next/router';
+
+import { page_home } from '@context';
+import { PrimaryButton, PrimaryCard } from '@attom';
 
 export type HomeProps = Props_Block & {};
 
@@ -18,10 +18,7 @@ export const Home = ({
 	const router = useRouter();
 
 	const changeRoute = (route: string) => {
-		const params = new URLSearchParams(window?.location?.search || '');
-		const search = params.toString();
-
-		router.push(`${route}/?${search}`);
+		router.push(`${route}${window?.location?.search || ''}`);
 	};
 
 	return (
