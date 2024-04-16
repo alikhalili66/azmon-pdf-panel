@@ -2,8 +2,6 @@ import { page_home } from '@context';
 
 import { PrimaryCard } from '@attom';
 
-import { Login, FetchReceptions, GetReception } from './components';
-
 export type HomeProps = Props_Block & {};
 
 export const Home = ({
@@ -15,16 +13,6 @@ export const Home = ({
 	...props
 }: HomeProps) => {
 	const { state } = page_home.useContext();
-	const { login, getReception } = state;
-
-	const isSuccessAuth = login?.$login?.Success || login?.$login?.Message === 'پذیرشی برای مرکز یافت نشده است';
-
-	//render pages
-	const login_render = !isSuccessAuth;
-	const fetchReceptions_render = !login_render;
-
-	//render modals
-	const getReception_render = fetchReceptions_render && getReception?.selectedItem;
 
 	return (
 		<PrimaryCard
@@ -36,9 +24,7 @@ export const Home = ({
 			transparent
 			{...props}
 		>
-			{login_render && <Login />}
-			{fetchReceptions_render && <FetchReceptions />}
-			{getReception_render && <GetReception />}
+			<div>home page</div>
 		</PrimaryCard>
 	);
 };

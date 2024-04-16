@@ -6,7 +6,7 @@ declare type API_example_getById = {
 	[key: string]: any;
 };
 
-declare type API_login_result_test = {
+declare type API_reception_result_test = {
 	[key: string]: any;
 
 	Order: number;
@@ -24,14 +24,14 @@ declare type API_login_result_test = {
 	RelatedTestId: string;
 };
 
-declare type API_login_result = {
+declare type API_reception_result = {
 	[key: string]: any;
 
 	Section: string;
-	Tests: API_login_result_test[];
+	Tests: API_reception_result_test[];
 };
 
-declare type API_login = {
+declare type API_reception = {
 	[key: string]: any;
 
 	FullName: string;
@@ -56,7 +56,7 @@ declare type API_login = {
 	LabId: string;
 	LabName: string;
 	LabMobile: string;
-	Result: API_login_result[];
+	Result: API_reception_result[];
 };
 
-declare type Reception = API_login;
+declare type Reception = API_reception;

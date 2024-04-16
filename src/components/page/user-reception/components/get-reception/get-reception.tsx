@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import { PrimaryButton, PrimaryModal } from '@attom';
-import { page_home } from '@context';
+import { page_userReception } from '@context';
 import { api } from '@services';
 
 export type GetReceptionProps = Props_Block & {};
@@ -15,7 +15,7 @@ export const GetReception = ({
 
 	...props
 }: GetReceptionProps) => {
-	const { state, setState, overWrite, initState } = page_home.useContext();
+	const { state, setState, overWrite, initState } = page_userReception.useContext();
 	const { getReception } = state;
 
 	const { selectedItem, _download } = getReception;

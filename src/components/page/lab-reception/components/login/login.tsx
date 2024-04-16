@@ -1,5 +1,5 @@
 import { Block, PrimaryButton, PrimaryCard, PrimaryInput, PureForm } from '@attom';
-import { page_home } from '@context';
+import { page_labReception } from '@context';
 import { useFormValidation } from '@hooks';
 import { regex } from '@utils';
 
@@ -13,11 +13,11 @@ export const Login = ({
 
 	...props
 }: LoginProps) => {
-	const { state, setState, overWrite } = page_home.useContext();
+	const { state, setState, overWrite } = page_labReception.useContext();
 	const { login } = state;
 	const { labId, password, _login } = login;
 
-	const actions = page_home.useActions();
+	const actions = page_labReception.useActions();
 
 	const changeLoginScope = (values: Partial<typeof login> = {}) => overWrite({ scope: 'login', value: { ...values } });
 

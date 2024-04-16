@@ -1,5 +1,5 @@
 import { Block, Col, PrimaryButton, PrimaryCard, PrimaryDatepicker, PrimaryInput, Row } from '@attom';
-import { page_home } from '@context';
+import { page_labReception } from '@context';
 import { Arrays, Dates, regex } from '@utils';
 import { useMemo } from 'react';
 
@@ -13,12 +13,12 @@ export const FetchReceptions = ({
 
 	...props
 }: FetchReceptionsProps) => {
-	const { state, overWrite } = page_home.useContext();
+	const { state, overWrite } = page_labReception.useContext();
 	const { fetchReceptions, login } = state;
 	const { _fetchReceptions, $fetchReceptions, filter } = fetchReceptions;
 	const { fromDate, toDate, name } = filter;
 
-	const actions = page_home.useActions();
+	const actions = page_labReception.useActions();
 
 	const changeFetchReseptionsScope = (values: Partial<typeof fetchReceptions> = {}) =>
 		overWrite({ scope: 'fetchReceptions', value: { ...values } });
