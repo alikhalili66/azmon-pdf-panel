@@ -25,19 +25,16 @@ export const MainTemplate = ({
 		router.push(`${path}${window?.location?.search || ''}`);
 	};
 
-	const linkClassname =
-		'px-6 min-h-[40px] min-w-[80px] flex items-center rounded-full justify-center hover-link text-text-secondary hover:text-primary-2 cursor-pointer';
-
 	const navLinks = [
 		//
 		{
 			name: 'خدمات',
-			url: "'https://www.homzhans.com/services/?_gl=1*ldjj9m*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjAuMTcxMzI2NTI4My4wLjAuMA..',",
+			url: 'https://www.homzhans.com/services/',
 			path: '',
 		},
 		{
 			name: 'جوابدهی',
-			url: 'https://www.homzhans.com/labs/?_gl=1*14eqc6p*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjAuMTcxMzI2NTI4My4wLjAuMA..',
+			url: 'https://www.homzhans.com/labs/',
 			subLinks: [
 				{ name: 'جوابدهی گروهی', path: '/tests' },
 				{ name: 'جوابدهی شخصی', path: '/test' },
