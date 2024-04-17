@@ -1,5 +1,6 @@
 import { Block, Col, PrimaryButton, PrimaryCard, PrimaryDatepicker, PrimaryInput, Row } from '@attom';
 import { page_labReception } from '@context';
+import { useDidMount } from '@hooks';
 import { Arrays, Dates, regex } from '@utils';
 import { useMemo } from 'react';
 
@@ -28,6 +29,16 @@ export const FetchReceptions = ({
 	const fetchReceptionsHandler = () => actions.fetchReceptions();
 
 	const renderGetReception = (item) => overWrite({ value: { selectedItem: item }, scope: 'getReception' });
+
+	useDidMount(() => {
+		overWrite({
+			scope: 'fetchReceptions.filter',
+			value: {
+				fromDate: new Date(Date.now()),
+				toDate: new Date(Date.now()),
+			},
+		});
+	}, []);
 
 	const filteredItems = useMemo(() => {
 		let items = $fetchReceptions || [];

@@ -51,7 +51,7 @@ export const PrimaryDatepicker = ({
 		if (onChange) onChange(geo, jalali);
 	};
 
-	const formattedValue = !value || value === 'invalid' || !Date.parse(value) ? null : value;
+	const formattedValue = !value || value === 'invalid' || !Date.parse(value) ? null : new Date(value);
 
 	const validationClass = (isValid && value && 'picker-valid') || (isValid === false && value && 'picker-invalid') || '';
 
