@@ -11,7 +11,7 @@ export const Home = ({
 	// box Control
 	boxClass = '',
 	boxSize = '',
-	boxSpace = 'pb-[30px]',
+	boxSpace = 'pb-[80px]',
 
 	...props
 }: HomeProps) => {
@@ -139,7 +139,7 @@ export const Home = ({
 							<div className='flex items-center justify-center pt-[20px]'>
 								<div
 									className='text-[16px] flex items-center justify-center gap-5 px-5 bg-primary-1 hover:bg-primary-2 min-h-[50px] rounded-full  text-[#fff] cursor-pointer'
-									onClick={undefined}
+									onClick={() => changeRoute('/test')}
 								>
 									<span>مشاهده نتیجه آزمایشگاه</span>
 									<i className='fa fa-send' />
