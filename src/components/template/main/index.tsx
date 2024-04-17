@@ -1,7 +1,8 @@
+import { useRouter } from 'next/router';
+
 import { Block } from '@attom';
 import { template_main } from '@context';
 import { images } from '@data';
-import { useRouter } from 'next/router';
 
 type MainTemplateProps = Props_Block & {};
 
@@ -20,10 +21,40 @@ export const MainTemplate = ({
 	const goToLink = (link: string) => {
 		window?.open(link, '_blank');
 	};
-	const goToPath = () => {};
+	const goToPath = (path: string) => {
+		router.push(`${path}${window?.location?.search || ''}`);
+	};
 
 	const linkClassname =
 		'px-6 min-h-[40px] min-w-[80px] flex items-center rounded-full justify-center hover-link text-text-secondary hover:text-primary-2 cursor-pointer';
+
+	const navLinks = [
+		//
+		{
+			name: 'خدمات',
+			url: "'https://www.homzhans.com/services/?_gl=1*ldjj9m*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjAuMTcxMzI2NTI4My4wLjAuMA..',",
+			path: '',
+		},
+		{
+			name: 'جوابدهی',
+			url: 'https://www.homzhans.com/labs/?_gl=1*14eqc6p*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjAuMTcxMzI2NTI4My4wLjAuMA..',
+			subLinks: [
+				{ name: 'جوابدهی گروهی', path: '/tests' },
+				{ name: 'جوابدهی شخصی', path: '/test' },
+			],
+		},
+		{ name: 'تست در منزل', url: 'https://homzhans.com/services/test-at-home/' },
+		{ name: 'پزشک در منزل', url: 'https://homzhans.com/services/doctor-at-home/' },
+		{
+			name: 'مشاوره رایگان',
+			url: 'https://homzhans.com/services/counseling/',
+			subLinks: [
+				{ name: 'مشاوره پزشکی', url: 'https://homzhans.com/services/medical-counseling/' },
+				{ name: 'مشاوره روانشناسی', url: 'https://homzhans.com/services/psychological-counseling/' },
+			],
+		},
+		{ name: 'مجله سلامت', url: 'https://keyvanlab.com/blog' },
+	];
 
 	return (
 		<Block
@@ -42,38 +73,38 @@ export const MainTemplate = ({
 					/>
 
 					<div className='grow flex items-center justify-center gap-2'>
-						<div
-							className={`${linkClassname}`}
-							onClick={() =>
-								goToLink(
-									'https://www.homzhans.com/services/?_gl=1*ldjj9m*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjAuMTcxMzI2NTI4My4wLjAuMA..',
-								)
-							}
-						>
-							خدمات
-						</div>
-						<div
-							className={`${linkClassname}`}
-							onClick={() =>
-								goToLink(
-									'https://www.homzhans.com/labs/?_gl=1*14eqc6p*_ga*NjM1MDE4MjE5LjE3MTMyNjUyODQ.*_ga_ZE3HE6CNNY*MTcxMzI2NTI4My4xLjAuMTcxMzI2NTI4My4wLjAuMA..',
-								)
-							}
-						>
-							جوابدهی
-						</div>
-						<div className={`${linkClassname}`} onClick={() => goToLink('https://homzhans.com/services/test-at-home/')}>
-							تست در منزل
-						</div>
-						<div className={`${linkClassname}`} onClick={() => goToLink('https://homzhans.com/services/doctor-at-home/')}>
-							پزشک در منزل
-						</div>
-						<div className={`${linkClassname}`} onClick={() => goToLink('https://homzhans.com/services/counseling/')}>
-							مشاوره رایگان
-						</div>
-						<div className={`${linkClassname}`} onClick={() => goToLink('https://keyvanlab.com/blog')}>
-							مجله سلامت
-						</div>
+						{navLinks.map((item, i) => (
+							<div key={i} className='relative [&:hover_:last-child]:flex'>
+								<div
+									className='px-6 min-h-[40px] min-w-[80px] flex items-center rounded-full justify-center hover-link text-text-secondary hover:text-primary-2 cursor-pointer'
+									onClick={() => {
+										if (item?.url) goToLink(item?.url || '');
+										if (item?.path) goToPath(item?.path || '');
+									}}
+								>
+									<span>{item?.name || ''}</span>
+
+									{item?.subLinks && item?.subLinks.length > 0 && <i className=' px-2 fa fa-angle-down !text-[20px]' />}
+								</div>
+
+								{item?.subLinks && item?.subLinks.length > 0 && (
+									<div className='z-[2] hidden absolute top-[40px] min-w-full right-0 bg-background-tertiary border border-[#0001] rounded-[12px] p-4 flex-col items-center justify-center gap-3'>
+										{item?.subLinks.map((item2, i2) => (
+											<div
+												key={i2}
+												className='text-[14px] text-primary-3 cursor-pointer hover:font-bold py-3'
+												onClick={() => {
+													if (item2?.url) goToLink(item2?.url || '');
+													if (item2?.path) goToPath(item2?.path || '');
+												}}
+											>
+												{item2?.name || ''}
+											</div>
+										))}
+									</div>
+								)}
+							</div>
+						))}
 					</div>
 
 					<div
