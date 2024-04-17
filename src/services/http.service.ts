@@ -126,10 +126,10 @@ export class HTTPService {
 		let request = await service();
 		const [data, res, err] = [request?.data || null, request?.res || null, request?.err || null];
 
-		const isSuccess = data?.Success || data?.status === 'success';
+		const isSuccess = data?.Success || data?.status === 'success' || data?.resultCode === 1;
 
-		const okMessageContent = okMessage || data?.Message || 'موفقیت آمیز';
-		const failMessageContent = failMessage || data?.Message || 'خطایی رخ داده است';
+		const okMessageContent = okMessage || data?.Message || data?.resultMessage || 'موفقیت آمیز';
+		const failMessageContent = failMessage || data?.Message || data?.resultMessage || 'خطایی رخ داده است';
 
 		if (isSuccess) {
 			changeStatus('ok');

@@ -70,3 +70,22 @@ export const $downloadPdf_POST = async (
 			}),
 		handlerConfig,
 	);
+
+//______________________  	______________________//
+export const $answer_pdf_create_POST = async (
+	handlerConfig: Service_configHandler,
+	data: Service_data & {
+		body: {
+			[key: string]: any;
+		};
+	},
+) =>
+	await HTTPService.handler(
+		async () =>
+			await HTTPService.call({
+				method: 'POST',
+				path: 'v1/service/answer/pdf/create',
+				...data,
+			}),
+		handlerConfig,
+	);

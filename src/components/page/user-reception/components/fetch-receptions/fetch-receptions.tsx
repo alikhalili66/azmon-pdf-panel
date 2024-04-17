@@ -1,6 +1,7 @@
 import { Block, PrimaryButton } from '@attom';
 import { page_userReception } from '@context';
 import { useDidMount } from '@hooks';
+import { api } from '@services';
 import { Dates } from '@utils';
 
 export type FetchReceptionsProps = Props_Block & {};
@@ -19,15 +20,34 @@ export const FetchReceptions = ({
 
 	const actions = page_userReception.useActions();
 
-	const changeFetchReseptionsScope = (values: Partial<typeof fetchReceptions> = {}) =>
+	const changeSectionScope = (values: Partial<typeof fetchReceptions> = {}) =>
 		overWrite({ scope: 'fetchReceptions', value: { ...values } });
 
 	useDidMount(() => {
-		changeFetchReseptionsScope({ $fetchReceptions: login?.$login?.Data || null });
+		changeSectionScope({ $fetchReceptions: login?.$login?.Data || null });
 	});
 
-	const downloadAllReceptions = () => {};
-	const downloadReception = (resultItem, testItem) => {};
+	const downloadPdfHandler = (item: any) => {
+		api.$answer_pdf_create_POST(
+			{
+				onStatus: (status) => changeSectionScope({ _download: status }),
+				onOk: (res) => {
+					const file = res?.info?.answer || null;
+
+					const createLink = async () => {
+						const downloadLink = document.createElement('a');
+						downloadLink.setAttribute('target', '_blank');
+						downloadLink.href = `data:${file?.content_type || 'application/pdf'};base64, ${file?.file || ''}`;
+						downloadLink.download = file?.filename || 'filename';
+						downloadLink.click();
+					};
+
+					if (file) createLink();
+				},
+			},
+			{ body: { ...item } },
+		);
+	};
 
 	//vars
 	const birthDate = $fetchReceptions?.BirthDate ? new Date($fetchReceptions?.BirthDate)?.toISOString() : '';
@@ -60,7 +80,7 @@ export const FetchReceptions = ({
 								bgColor='bg-tertiary-1'
 								content='دانلود تمام تست ها'
 								icon='fa fa-download fa-lg px-2'
-								onClick={() => downloadAllReceptions()}
+								onClick={() => downloadPdfHandler($fetchReceptions)}
 								loading={_download === 'loading'}
 							/>
 						</div>
@@ -171,7 +191,7 @@ export const FetchReceptions = ({
 											)}
 										</div>
 
-										<div className='flex items-center justify-center pt-[20px] pb-[30px]'>
+										{/* <div className='flex items-center justify-center pt-[20px] pb-[30px]'>
 											<PrimaryButton
 												bgColor='bg-tertiary-1'
 												content='دانلود تست'
@@ -179,7 +199,7 @@ export const FetchReceptions = ({
 												onClick={() => downloadReception(resultItem, testItem)}
 												loading={_download === 'loading'}
 											/>
-										</div>
+										</div> */}
 									</div>
 								))}
 							</div>

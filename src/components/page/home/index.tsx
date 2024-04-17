@@ -11,7 +11,7 @@ export const Home = ({
 	// box Control
 	boxClass = '',
 	boxSize = '',
-	boxSpace = '',
+	boxSpace = 'pb-[30px]',
 
 	...props
 }: HomeProps) => {
@@ -124,6 +124,62 @@ export const Home = ({
 							)
 						}
 					/>
+				</div>
+
+				{/*  */}
+
+				<div className='grid grid-cols-12 pt-[50px]'>
+					<div className='col-span-12 md:col-span-6 relative pt-[5%]'>
+						<div className='min-h-[90%] rounded-r-[26px] p-4 bg-[#f7f7f7]'>
+							<div className='text-center flex flex-col gap-2 items-center justify-center'>
+								<img className='h-[100px]' alt='' src={images?.logo_homezhansName?.src} />
+								<div className='text-primary-3 text-[20px] font-[500]'>هومژانس؛ همراه شما در روز های سخت</div>
+							</div>
+
+							<div className='flex items-center justify-center pt-[20px]'>
+								<div
+									className='text-[16px] flex items-center justify-center gap-5 px-5 bg-primary-1 hover:bg-primary-2 min-h-[50px] rounded-full  text-[#fff] cursor-pointer'
+									onClick={undefined}
+								>
+									<span>مشاهده نتیجه آزمایشگاه</span>
+									<i className='fa fa-send' />
+								</div>
+							</div>
+
+							<div className='text-center pt-[25px] text-text-secondary'>به راهنمایی نیاز داری؟ با ما تماس بگیر.</div>
+
+							<div className='grid grid-cols-12 gap-2 text-text-secondary pt-[10px]'>
+								<div className='col-span-12 md:col-span-4 flex items-center justify-center gap-2'>
+									<i className='fa fa-phone text-primary-3 !text-[16px]' />
+									<span className='text-[14px]'>58717 021</span>
+								</div>
+								<div className='col-span-12 md:col-span-4 flex items-center justify-center gap-2 border-r border-r-[#0003]'>
+									<i className='fa fa-inbox text-primary-3 !text-[16px]' />
+									<span className='text-[14px]'>info@homzhans.com</span>
+								</div>
+								<div className='col-span-12 md:col-span-4 flex items-center justify-center gap-2 border-r border-r-[#0003]'>
+									<i className='fa fa-dot-circle-o text-primary-3 !text-[16px]' />
+									<span className='text-[14px]'>HomZhans@</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className='col-span-12 md:col-span-6 relative'>
+						<img className='w-full rounded-[26px]' alt='' src={images.mapLabs?.src || ''} />
+
+						<span className='bg-danger w-4 h-4 rounded-full absolute top-[7%] right-[39%] flex items-center justify-center'>
+							<span className='bg-danger rounded-full w-4 h-4 animate-ping'></span>
+						</span>
+						<span className='bg-danger w-4 h-4 rounded-full absolute top-[39%] right-[31%] flex items-center justify-center'>
+							<span className='bg-danger rounded-full w-4 h-4 animate-ping'></span>
+						</span>
+						<span className='bg-danger w-4 h-4 rounded-full absolute top-[49%] right-[60%] flex items-center justify-center'>
+							<span className='bg-danger rounded-full w-4 h-4 animate-ping'></span>
+						</span>
+						<span className='bg-danger w-4 h-4 rounded-full absolute top-[68%] right-[73%] flex items-center justify-center'>
+							<span className='bg-danger rounded-full w-4 h-4 animate-ping'></span>
+						</span>
+					</div>
 				</div>
 			</div>
 		</PrimaryCard>

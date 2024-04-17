@@ -15,7 +15,7 @@ module.exports = {
 	},
 	// Environment
 	env: {
-		API_URI_DEV: 'http://192.168.2.14:50620',
-		API_URI_PROD: 'http://192.168.2.12:50621',
+		API_URI_DEV: 'http://185.213.167.156:6061',
+		API_URI_PROD: 'http://185.213.167.156:6061',
 	},
 };

@@ -28,22 +28,24 @@ export const GetReception = ({
 	};
 
 	const downloadPdfHandler = (item: { [key: string]: any }) => {
-		api.$downloadPdf_POST(
+		api.$answer_pdf_create_POST(
 			{
 				onStatus: (status) => changeSectionScope({ _download: status }),
 				onOk: (res) => {
+					const file = res?.info?.answer || null;
+
 					const createLink = async () => {
 						const downloadLink = document.createElement('a');
 						downloadLink.setAttribute('target', '_blank');
-						downloadLink.href = `data:application/pdf;base64, ${res?.data?.pdf?.encoded || ''}`;
-						downloadLink.download = 'filename';
+						downloadLink.href = `data:${file?.content_type || 'application/pdf'};base64, ${file?.file || ''}`;
+						downloadLink.download = file?.filename || 'filename';
 						downloadLink.click();
 					};
 
-					if (res?.data) createLink();
+					if (file) createLink();
 				},
 			},
-			{ body: item },
+			{ body: { ...item } },
 		);
 	};
 

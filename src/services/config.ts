@@ -5,7 +5,7 @@ const isDevMode = process.env.NODE_ENV !== 'production';
 export const appConfig = {
 	isDevelopment: isDevMode,
 	apiBaseUrl: isDevMode ? baseURI_dev : baseURI_production,
-	timeout: 40000,
+	timeout: 60000,
 };
 
 export default appConfig;
