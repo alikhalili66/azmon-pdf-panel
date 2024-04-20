@@ -29,7 +29,7 @@ export const MainTemplate = ({
 		//
 		{
 			name: 'خدمات',
-			url: 'https://www.homzhans.com/services/',
+			url: 'https://homzhans.com/services/',
 			path: '',
 		},
 		{
