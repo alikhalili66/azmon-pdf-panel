@@ -54,18 +54,14 @@ export const GetReception = ({
 			{
 				onStatus: (status) => changeSectionScope({ _download: status }),
 				onOk: (res) => {
-					const href = res?.data?.pdf?.link;
+					const pdf = res?.data?.pdf;
 
-					if (href) {
+					if (pdf) {
 						const downloadLink = document.createElement('a');
 						downloadLink.setAttribute('target', '_blank');
-						downloadLink.download = 'pdf-file';
-						downloadLink.href = href;
-						// downloadLink.dispatchEvent(new MouseEvent('click'));
+						downloadLink.href = `data:application/pdf;base64, ${pdf?.encoded || ''}`;
+						downloadLink.download = 'filename';
 						downloadLink.click();
-						// document.body.removeChild(downloadLink);
-						// document.body.appendChild(downloadLink);
-						// delete downloadLink;
 					}
 				},
 			},
