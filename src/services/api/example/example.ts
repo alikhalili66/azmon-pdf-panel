@@ -66,7 +66,7 @@ export const $downloadPdf_POST = async (
 		async () =>
 			await HTTPService.call({
 				method: 'POST',
-				defaultUri: 'https://pdfgen.homzhans.com/api/pdf-gen-for-front',
+				defaultUri: 'api/pdf-gen-for-front',
 				path: '',
 				...data,
 			}),
