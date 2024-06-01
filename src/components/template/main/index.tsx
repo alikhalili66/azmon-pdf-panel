@@ -69,7 +69,7 @@ export const MainTemplate = ({
 						onClick={() => goToLink('https://homzhans.com/')}
 					/>
 
-					<div className='grow flex items-center justify-center gap-2'>
+					<div className='grow flex items-center justify-center gap-2 overflow-hidden'>
 						{navLinks.map((item, i) => (
 							<div key={i} className='relative [&:hover_:last-child]:flex'>
 								<div
@@ -139,7 +139,7 @@ export const MainTemplate = ({
 						</div>
 					</div>
 					{/* 2 */}
-					<div className='pt-[30px] grid grid-cols-12 gap-6'>
+					<div className='pt-[30px] grid grid-cols-12 gap-6 px-2'>
 						<div className='col-span-12 md:col-span-6'>
 							<img alt='' src={images.logo_homezhans?.src} className='h-[80px]' />
 							<div className='font-bold text-[20px] text-primary-3 pt-[10px]'>هومژانس؛ همراه شما در بیماری</div>

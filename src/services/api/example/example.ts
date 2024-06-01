@@ -57,7 +57,9 @@ export const $userLogin_GET = async (
 export const $downloadPdf_POST = async (
 	handlerConfig: Service_configHandler,
 	data: Service_data & {
-		body: {};
+		body: {
+			[key: string]: any;
+		};
 	},
 ) =>
 	await HTTPService.handler(

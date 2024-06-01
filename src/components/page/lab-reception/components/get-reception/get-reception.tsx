@@ -49,6 +49,30 @@ export const GetReception = ({
 		);
 	};
 
+	const downloadPdfHandler2 = (item: { [key: string]: any }) => {
+		api.$downloadPdf_POST(
+			{
+				onStatus: (status) => changeSectionScope({ _download: status }),
+				onOk: (res) => {
+					const href = res?.data?.pdf?.link;
+
+					if (href) {
+						const downloadLink = document.createElement('a');
+						downloadLink.setAttribute('target', '_blank');
+						downloadLink.download = 'pdf-file';
+						downloadLink.href = href;
+						// downloadLink.dispatchEvent(new MouseEvent('click'));
+						downloadLink.click();
+						// document.body.removeChild(downloadLink);
+						// document.body.appendChild(downloadLink);
+						// delete downloadLink;
+					}
+				},
+			},
+			{ body: { ...item } },
+		);
+	};
+
 	return (
 		<PrimaryModal boxClass={boxClass} boxSpace={boxSpace} boxSize={boxSize} onClose={onClose} {...props}>
 			<div className='min-h-[200px] px-4 py-3 dir-ltr ltr'>
@@ -103,13 +127,22 @@ export const GetReception = ({
 					})}
 				</div>
 
-				<div className='flex items-center justify-center pt-[20px]'>
+				<div className='flex items-center flex-wrap justify-center pt-[20px] gap-4 dir-rtl rtl'>
 					<PrimaryButton
 						bgColor='bg-tertiary-1'
-						elClass='dir-ltr ltr'
+						elClass='min-w-[200px] dir-ltr ltr'
 						content='دانلود PDF'
 						icon='fa fa-download fa-lg px-2'
 						onClick={() => downloadPdfHandler(selectedItem)}
+						loading={_download === 'loading'}
+					/>
+
+					<PrimaryButton
+						bgColor='bg-primary-1'
+						elClass='min-w-[200px] dir-ltr ltr'
+						content='دانلود PDF'
+						icon='fa fa-download fa-lg px-2'
+						onClick={() => downloadPdfHandler2(selectedItem)}
 						loading={_download === 'loading'}
 					/>
 				</div>

@@ -27,7 +27,7 @@ export const LabCard = ({
 	...props
 }: LabCardProps) => {
 	const buttonClass =
-		'text-[14px] flex items-center justify-center gap-2 bg-primary-3 hover:bg-primary-2 min-h-[40px] grow rounded-full  max-w-[33%] text-[#fff] cursor-pointer';
+		' px-3 py-1 text-center text-[14px] flex items-center justify-center gap-2 bg-primary-3 hover:bg-primary-2 min-h-[40px] grow rounded-full  max-w-[33%] text-[#fff] cursor-pointer';
 
 	return (
 		<Block boxClass={boxClass} boxSize={boxSize} boxSpace={boxSpace} {...props}>
