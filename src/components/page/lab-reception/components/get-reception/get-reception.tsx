@@ -27,6 +27,25 @@ export const GetReception = ({
 		overWrite({ value: { getReception: initState.getReception }, scope: '' });
 	};
 
+	function downloadBase64File(base64Data, filename) {
+		// Convert the base64 string to a Blob
+		const byteCharacters = atob(base64Data);
+		const byteNumbers = new Array(byteCharacters.length);
+		for (let i = 0; i < byteCharacters.length; i++) {
+			byteNumbers[i] = byteCharacters.charCodeAt(i);
+		}
+		const byteArray = new Uint8Array(byteNumbers);
+		const blob = new Blob([byteArray], { type: 'application/octet-stream' });
+
+		// Create a temporary anchor element
+		const link = document.createElement('a');
+		link.href = window.URL.createObjectURL(blob);
+		link.download = filename;
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	}
+
 	const downloadPdfHandler = (item: { [key: string]: any }) => {
 		api.$answer_pdf_create_POST(
 			{
@@ -34,15 +53,17 @@ export const GetReception = ({
 				onOk: (res) => {
 					const file = res?.info?.answer || null;
 
-					const createLink = async () => {
-						const downloadLink = document.createElement('a');
-						downloadLink.setAttribute('target', '_blank');
-						downloadLink.href = `data:${file?.content_type || 'application/pdf'};base64, ${file?.file || ''}`;
-						downloadLink.download = file?.filename || 'filename';
-						downloadLink.click();
-					};
+					if (file) downloadBase64File(file?.file, file?.filename || 'filename.pdf');
 
-					if (file) createLink();
+					// const createLink = async () => {
+					// 	const downloadLink = document.createElement('a');
+					// 	downloadLink.setAttribute('target', '_blank');
+					// 	downloadLink.href = `data:${file?.content_type || 'application/pdf'};base64, ${file?.file || ''}`;
+					// 	downloadLink.download = file?.filename || 'filename';
+					// 	downloadLink.click();
+					// };
+
+					// if (file) createLink();
 				},
 			},
 			{ body: { ...item } },
@@ -133,14 +154,14 @@ export const GetReception = ({
 						loading={_download === 'loading'}
 					/>
 
-					<PrimaryButton
+					{/* <PrimaryButton
 						bgColor='bg-primary-1'
 						elClass='min-w-[200px] dir-ltr ltr'
 						content='دانلود PDF'
 						icon='fa fa-download fa-lg px-2'
 						onClick={() => downloadPdfHandler2(selectedItem)}
 						loading={_download === 'loading'}
-					/>
+					/> */}
 				</div>
 			</div>
 		</PrimaryModal>
